@@ -2,9 +2,10 @@ package main
 
 import (
 	"errors"
+	"log"
+
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"log"
 )
 
 var (
@@ -22,12 +23,12 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	log.Printf("The entire request %s\n", request)
 
 	// If no name is provided in the HTTP request body, throw an error
-	if len(request.Body) < 1 {
-		return events.APIGatewayProxyResponse{}, ErrNameNotProvided
-	}
+	//if len(request.Body) < 1 {
+	//return events.APIGatewayProxyResponse{}, ErrNameNotProvided
+	//}
 
 	return events.APIGatewayProxyResponse{
-		Body:       "Hello " + request.Body,
+		Body:       "Hello ",
 		StatusCode: 200,
 	}, nil
 

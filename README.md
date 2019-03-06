@@ -5,24 +5,46 @@ for local development.
 
 ## Usage
 
+Pre - Requirement: set GOPATH in enviroment variable. I used D:\go
+Download the zip tool first:
+```bash
+go get -u github.com/aws/aws-lambda-go/cmd/build-lambda-zip
+```
+
 1. Compile the `main.go` into a binary
 
   ```bash
-  GOOS=linux go build -o main
+  Cmd> set GOOS=linux
+  go build -o main main.go 
   ```
+2. ## local dev Env:
+  - AWS Command Line Interface [(AWS CLI Install)](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows) and Docker for Windows [install](https://docs.docker.com/docker-for-windows/install/)
+  - cmd > aws configure
+  configure AWS Access Key ID,  AWS Secret Access Key, Default region name and Default output format ( Find your Access Key ID,  AWS Secret Access Key on  https://console.aws.amazon.com/iam/home?region=ap-south-1#/security_credentials  > Aceess Keys > Create New Access Key).
+  
+  - docker pull lambci/lambda
 
-2. Install [SAM Local](https://github.com/awslabs/aws-sam-local)
+3. Install [SAM Local](https://github.com/awslabs/aws-sam-local)
 
-3. Start the **SAM Local** server
+4. Start the **SAM Local** server
 
   ```bash
   sam local start-api
   ```
 
-4. Access the API (`curl` needs to be installed)
+5. Access the API (`curl` needs to be installed)
 
   ```bash
   curl -X POST -d world http://localhost:3000/products/test
   ```
 
   You should see `Hello world%` being returned.
+  
+6. Generate Build and upload lambda into AWS
+```bash 
+D:\go\bin\build-lambda-zip.exe -o main.zip main
+```
+upload main.zip when create a lambda function in AWS
+  
+  
+  
