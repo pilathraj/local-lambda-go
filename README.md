@@ -23,8 +23,11 @@ go get -u github.com/aws/aws-lambda-go/cmd/build-lambda-zip
   ```
 2. ## Local dev Env:
   - AWS Command Line Interface [(AWS CLI Install)](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows) and Docker for Windows [install](https://docs.docker.com/docker-for-windows/install/)
+  ```bash
   - cmd > aws configure
-  configure AWS Access Key ID,  AWS Secret Access Key, Default region name and Default output format ( Find your Access Key ID,  AWS Secret Access Key on  https://console.aws.amazon.com/iam/home?region=ap-south-1#/security_credentials  > Aceess Keys > Create New Access Key).
+  ```
+  It will be asking you to configure AWS Access Key ID,  AWS Secret Access Key, Default region name and Default output format.
+  You can find your Access Key ID,  AWS Secret Access Key on  https://console.aws.amazon.com/iam/home?region=ap-south-1#/security_credentials  > Aceess Keys > Create New Access Key.
 
   - docker pull lambci/lambda
 
@@ -38,7 +41,7 @@ go get -u github.com/aws/aws-lambda-go/cmd/build-lambda-zip
 
 5. Access the API via Postman
 
-![sam-api](https://github.com/harryleesan/local-lambda-go/blob/master/screenshot/Sam-output.png)
+![sam-api](https://github.com/pilathraj/local-lambda-go/blob/master/screenshot/Sam-output.png)
 
  Post data print as the response.
 
